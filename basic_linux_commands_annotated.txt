@@ -1,0 +1,115 @@
+Basic Linux Commands
+
+This document covers essential Linux commands used for navigation, file operations, I/O redirection, text processing, searching, compression, and archiving. All examples have been cleaned and formatted for clarity.
+
+1. Using Alias
+alias ml="echo 'hello linux'" # create alias
+ml
+
+2. Variables
+MY_NAME=Erdem # define variable
+echo $MY_NAME # print variable
+export MY_NAME # export variable
+env | grep MY_NAME # search with grep
+unset MY_NAME # remove variable
+
+3. PATH
+echo $PATH # show PATH
+ls /usr/local/bin # list directory
+pip -V # pip version
+/usr/local/bin/pip -V # run pip via full path
+
+type ls # show command type
+type cd # show command type
+type nano # show command type
+which nano
+
+4. Running a Shell Script
+#!/bin/bash # shebang
+echo "My name is Erdem"
+
+chmod +x simple_script.sh # make executable
+./simple_script.sh # run script
+
+export PATH="/home/train/prod_level/linux_basic/notes:$PATH"
+simple_script.sh
+
+5. grep & Regex # search with grep
+grep ^mur words.txt # search with grep
+grep -i ^mur words.txt # search with grep
+grep -in kuş$ words.txt # search with grep
+grep "k.ş" words.txt # search with grep
+grep M[au]k words.txt # search with grep
+grep M[^ae]k words.txt # search with grep
+
+grep "[0-9]{11}" sample_tc_kimlik_names_numbers.txt # search with grep
+grep -v "[0-9]{11}" sample_tc_kimlik_names_numbers.txt # search with grep
+
+grep '^Ak|ş$' words.txt # search with grep
+grep -E '^Ak|ş$' words.txt # search with grep
+
+6. File Operations
+mkdir my_folder # create folder
+touch my_file # create file
+rm my_file # delete file/folder
+rm -r my_folder # delete file/folder
+
+7. Copy & Move
+cp my_file1 my_folder/ # copy file
+mv my_file1 my_folder/ # move/rename
+mv my_file1 my_file_renamed # move/rename
+cp -r folderA folderB/ # copy file
+mv folderA folderA_renamed # move/rename
+
+8. sed
+sed '1d' file.txt # edit text
+sed -i '1d' file.txt # edit text
+sed 's+line+line_replaced+g' file.txt # edit text
+sed '2,4s+line+line_replaced+g' file.txt # edit text
+
+9. View Files
+cat file.txt # show file content
+less file.txt # view file pager
+more file.txt # view file pager
+head file.csv # show top
+tail file.csv # show bottom
+
+10. Pipes
+ls -l /etc | grep ssh # search with grep
+
+11. Redirect
+cat output.txt > newfile # show file content
+echo "append line" >> newfile # redirect output
+> newfile # redirect output
+ls -l . > list_file # redirect output
+ls -l mahmut &> errors.txt # redirect output
+cat < output.txt # show file content
+
+./script.sh > std_output # redirect output
+./script.sh 2> std_error # redirect output
+
+12. sort
+sort sortfile.txt # sort lines
+sort -r sortfile.txt # sort lines
+sort -t, -k2 sortfile.txt # sort lines
+sort -t, -k2 -n sortfile.txt # sort lines
+
+13. gzip
+gzip file.csv # compress
+gunzip file.csv.gz # decompress
+gzip -c file.csv > file.csv.gz # redirect output
+gzip -r retail_db/ # compress
+
+14. tar
+tar -cf retail_db.tar retail_db/ # archive
+tar -tvf retail_db.tar # archive
+tar xf retail_db.tar # archive
+tar -czf retail_db.tar.gz retail_db/ # archive
+tar xzf retail_db.tar.gz # archive
+
+15. Search
+locate Advertising.csv # fast search
+find /home/train -name "Advertising*" # recursive search
+
+16. Editors
+nano, vi/vim basics
